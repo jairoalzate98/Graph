@@ -13,7 +13,7 @@ public class MainWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanelGraphs jPanelGraphs;
-	private JPanelTable jPanelTable;
+	private JpanelRight jpanelRight;
 
 	public MainWindow(Controller controller, int number) {
 		setTitle("Grafos");
@@ -23,13 +23,17 @@ public class MainWindow extends JFrame {
 		setLayout(new GridLayout(1, 2));
 		jPanelGraphs = new JPanelGraphs();
 		add(jPanelGraphs);
-		jPanelTable = new JPanelTable(controller, number);
-		add(jPanelTable);
+		jpanelRight = new JpanelRight(controller, number);
+		add(jpanelRight);
 	}
 	
 	public void setListPanel(ArrayList<Node> nodeList) {
 		jPanelGraphs.setNodeList(nodeList);
 		jPanelGraphs.revalidate();
 		jPanelGraphs.repaint();
+	}
+	
+	public ArrayList<Texts> getTexts() {
+		return jpanelRight.getTexts();
 	}
 }

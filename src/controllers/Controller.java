@@ -2,11 +2,13 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import models.Manager;
 import views.MainWindow;
+import views.Texts;
 
 public class Controller implements ActionListener{
 
@@ -52,6 +54,21 @@ public class Controller implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (Events.valueOf(e.getActionCommand())) {
+		case ACCEPT:
+			accept();
+			break;
+		}
+	}
+
+	private void accept() {
+		ArrayList<Texts> texts = mainWindow.getTexts();
+		for (Texts text : texts) {
+			if (!text.getjTextField().getText().equals("")) {
+				int x = text.getX();
+				int y = text.getY();
+				String weight = text.getjTextField().getText();
+				System.out.println("Node x -> " + x + " Node y -> " + y + " peso -> " + weight);
+			}
 		}
 	}
 }
