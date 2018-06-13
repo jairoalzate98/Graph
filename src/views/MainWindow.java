@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 
 import controllers.Controller;
 import models.Node;
+import models.Relation;
 
 public class MainWindow extends JFrame {
 
@@ -28,7 +29,15 @@ public class MainWindow extends JFrame {
 	}
 	
 	public void setListPanel(ArrayList<Node> nodeList) {
+		jPanelGraphs.removeAll();
 		jPanelGraphs.setNodeList(nodeList);
+		jPanelGraphs.revalidate();
+		jPanelGraphs.repaint();
+	}
+	
+	public void setRelationPanel(ArrayList<Relation> relationList) {
+		jPanelGraphs.removeAll();
+		jPanelGraphs.setRelationList(relationList);
 		jPanelGraphs.revalidate();
 		jPanelGraphs.repaint();
 	}

@@ -67,8 +67,9 @@ public class Controller implements ActionListener{
 				int x = text.getX();
 				int y = text.getY();
 				String weight = text.getjTextField().getText();
-				System.out.println("Node x -> " + x + " Node y -> " + y + " peso -> " + weight);
+				manager.createRelation(String.valueOf(x), String.valueOf(y), weight);
 			}
 		}
+		mainWindow.setRelationPanel(manager.getRelationList());
 	}
 }
