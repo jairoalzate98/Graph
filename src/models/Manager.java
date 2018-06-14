@@ -27,6 +27,10 @@ public class Manager {
 	public ArrayList<Relation> getRelationList() {
 		return relationList;
 	}
+	
+	public void setDefaultArray() {
+		relationList = new ArrayList<>();
+	}
 
 	public void createRelation(String nodeOne, String nodeTwo, String weight) {
 		Node nodeO = null;
@@ -34,10 +38,9 @@ public class Manager {
 		for (Node node : nodeList) {
 			if (node.getInfo().equals(nodeOne)) {
 				nodeO = node;
-			}else {
-				if (node.getInfo().equals(nodeTwo)) {
-					nodeT = node;
-				}
+			}
+			if (node.getInfo().equals(nodeTwo)) {
+				nodeT = node;
 			}
 		}
 		relationList.add(new Relation(nodeO, nodeT, weight));

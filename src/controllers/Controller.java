@@ -61,6 +61,7 @@ public class Controller implements ActionListener{
 	}
 
 	private void accept() {
+		manager.setDefaultArray();
 		ArrayList<Texts> texts = mainWindow.getTexts();
 		for (Texts text : texts) {
 			if (!text.getjTextField().getText().equals("")) {
